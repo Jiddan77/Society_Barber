@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jiddan77.github.io/Society_Barber/sitemap.xml
+Sitemap: https://societybarber.se/sitemap.xml
