@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <title>Society Barber</title>
+  <script>
+    var path = window.location.pathname.toLowerCase().replace(/\/$/, '').split('/').pop();
+    var map = {
+      'kontakt': '#kontakt',
+      'contact': '#kontakt',
+      'tjanster': '#tjanster',
+      'tjänster': '#tjanster',
+      'priser': '#tjanster',
+      'barberare': '#barberare',
+      'team': '#barberare',
+      'galleri': '#galleri',
+      'gallery': '#galleri',
+      'boka': '',
+      'book': ''
+    };
+    var hash = map.hasOwnProperty(path) ? map[path] : '';
+    window.location.replace('https://societybarber.se/' + hash);
+  </script>
+</head>
+<body></body>
+</html>
