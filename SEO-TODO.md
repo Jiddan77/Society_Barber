@@ -47,13 +47,32 @@ Dessa åtgärder kräver manuella steg och kan inte göras i koden.
 
 ## 🟡 Medium (inom 1 månad)
 
-### 5. Bygg recensioner på Bokadirekt
+### 5. Bygg backlinks (externa länkar in till sidan)
+**Varför:** Sidan har 0 backlinks från andra domäner. Google ser backlinks som röster — utan dem är det svårt att ranka mot konkurrenter.
+**Åtgärder:**
+- [ ] Be Bokadirekt lägga till länk till hemsidan i er profil
+- [ ] Registrera på Reco.se, Hitta.se, Eniro.se (se punkt 8) — de ger automatiskt en backlink
+- [ ] Om ni har ett Instagram/TikTok — lägg till hemsidans URL i bion
+- [ ] Om lokaltidningar (t.ex. Österåker Lokalnytt) skriver om salongen — be dem länka
+
+### 6. Åtgärda www/non-www duplicering (301-redirect)
+**Varför:** SEO-verktyget flaggar att sidan svarar på både `jiddan77.github.io` och `www.jiddan77.github.io` utan redirect. Google kan behandla dem som duplicerat innehåll.
+**Lösning:** Fixas automatiskt när ni kopplar en **egen domän** (se punkt 3). GitHub Pages hanterar www/non-www korrekt med custom domain + HTTPS.
+**Kan inte fixas i kod utan custom domain.**
+
+### 7. Minska filstorlek (2.1 MB HTML)
+**Varför:** Google rekommenderar under 100 KB. 2.1 MB gör att sidan laddas långsamt på mobil vilket påverkar ranking (Core Web Vitals).
+**Orsak:** Designverktygets bundle packar in alla bilder och fonter som base64 i HTML-filen.
+**Lösning:** Exportera sidan på nytt i ett verktyg som stöder externa filer, eller bygg om sidan med ett vanligt webbramverk (Next.js, Astro, etc.).
+**Kan inte fixas utan att designa om sidan.**
+
+### 8. Bygg recensioner på Bokadirekt
 **Varför:** AggregateRating med äkta recensioner ger guldstjärnor i sökresultaten — dramatisk CTR-ökning.
 **Steg:**
 1. Be kunder lämna recensioner på Bokadirekt efter varje besök
 2. När ni har minst 5 recensioner → meddela Claude → lägger till AggregateRating i schemat
 
-### 6. Registrera på lokala kataloger (citationsbygge)
+### 9. Registrera på lokala kataloger (citationsbygge)
 **Varför:** Konsekventa NAP-uppgifter (namn, adress, telefon) på flera sajter stärker lokal rankning.
 **Sajter att registrera sig på:**
 - [ ] Reco.se
@@ -62,7 +81,7 @@ Dessa åtgärder kräver manuella steg och kan inte göras i koden.
 - [ ] Yelp
 - [ ] Apple Maps (https://mapsconnect.apple.com)
 
-### 7. Lägg till Instagram-flöde eller socialt bevis på sidan
+### 10. Lägg till Instagram-flöde eller socialt bevis på sidan
 **Varför:** Färskt innehåll och social proof ökar konvertering och signalerar aktivitet till Google.
 
 ---
@@ -78,7 +97,10 @@ Dessa åtgärder kräver manuella steg och kan inte göras i koden.
 - [x] FAQ-schema (5 vanliga frågor)
 - [x] `sitemap.xml`
 - [x] `robots.txt`
-- [x] Favicon
+- [x] Favicon + Apple touch icon
 - [x] Google Fonts stylesheet (Cormorant Garamond + Jost)
 - [x] `llms.txt` för AI-sökmotorer
 - [x] `theme-color` för mobila webbläsare
+- [x] Viewport-tagg i outer `<head>`
+- [x] Statisk H1, H2-rubriker och interna länkar för non-JS-crawlers
+- [x] Titel förkortad till under 580px
