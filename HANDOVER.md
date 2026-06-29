@@ -4,6 +4,49 @@
 
 ---
 
+## Till Betty — vad händer just nu (ingen teknik)
+
+Hej Betty! Här är en enkel förklaring av vad vi håller på med.
+
+**Du har idag en adress på internet:** `societybarber.se`  
+Den adressen pekar just nu på en tom, ful standardsida som inte representerar salongen alls.
+
+**Vi har byggt en helt ny, snygg hemsida** åt dig med bilder, priser, öppettider och en bokningsknapp. Den finns redan live och fungerar — men på en tillfällig adress just nu.
+
+**Det enda som återstår** är att byta vart `societybarber.se` pekar — ungefär som att byta adressskylt på en dörr. Det är ett tekniskt steg som Joel på Internet.se gör åt oss. Vi har skickat instruktioner till honom.
+
+**Vad behöver du göra?** Ingenting just nu. Vi hör av oss när den nya sidan är live på `societybarber.se`. Det brukar ta 1–24 timmar efter att Joel gjort ändringen.
+
+**Vad händer med den gamla sidan?** Den försvinner och ersätts helt av den nya.
+
+---
+
+## Pågående just nu — DNS-byte (2026-06-29)
+
+Alexander har kontaktat Joel Lauronen på Internet.se med följande DNS-poster för att peka `societybarber.se` till den nya hemsidan på GitHub Pages:
+
+**A-poster (societybarber.se):**
+```
+185.199.108.153
+185.199.109.153
+185.199.110.153
+185.199.111.153
+```
+
+**CNAME (www.societybarber.se):**
+```
+www.societybarber.se → jiddan77.github.io
+```
+
+**När Joel bekräftar:** kontakta Claude för att uppdatera canonical-URL, sitemap och schema från `jiddan77.github.io/Society_Barber/` till `societybarber.se`. Det är ett snabbt jobb på ~5 minuter.
+
+**Joels kontaktuppgifter:**
+- E-post: jol@internet.se
+- Telefon: 031 723 22 21
+- Företag: Internet.se Svenska AB
+
+---
+
 ## Översikt
 
 Society Barbers hemsida är publicerad på GitHub Pages och SEO-optimerad. Sidan är byggd med ett proprietärt designverktyg (Claude Design) som buntar ihop allt innehåll i en enda `index.html`-fil på 2.1 MB.
