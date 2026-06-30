@@ -85,6 +85,9 @@ const {
             document.location.href = "/admin/";
           });
         }
+        if (window.location.hash.includes('invite_token') || window.location.hash.includes('recovery_token')) {
+          window.netlifyIdentity.open();
+        }
       });
     }
   </script>
