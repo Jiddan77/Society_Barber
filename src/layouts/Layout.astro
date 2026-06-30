@@ -78,15 +78,15 @@ const {
 
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script>
-    if (window.netlifyIdentity) {
+    var hash = window.location.hash;
+    if (hash.includes('invite_token') || hash.includes('recovery_token')) {
+      window.location.replace('/admin/' + hash);
+    } else if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {
         if (!user) {
           window.netlifyIdentity.on("login", () => {
             document.location.href = "/admin/";
           });
-        }
-        if (window.location.hash.includes('invite_token') || window.location.hash.includes('recovery_token')) {
-          window.netlifyIdentity.open();
         }
       });
     }
