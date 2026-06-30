@@ -1,0 +1,85 @@
+---
+import fs from 'node:fs';
+import path from 'node:path';
+import settings from '../../content/settings.json';
+
+const barbersDir = path.resolve('content/barbers');
+const barbers = fs.readdirSync(barbersDir)
+  .filter(f => f.endsWith('.json'))
+  .map(f => JSON.parse(fs.readFileSync(path.join(barbersDir, f), 'utf-8')))
+  .sort((a, b) => a.order - b.order);
+---
+
+<section class="section" id="barberare">
+  <div class="container">
+    <p class="section-label">Teamet</p>
+    <h2>Möt våra barberare</h2>
+    <div class="divider"></div>
+
+    <div class="barbers-grid">
+      {barbers.map((b) => (
+        <article class="barber-card">
+          <div class="barber-photo">
+            <img src={b.photo} alt={`${b.name} – barberare hos Society Barber`} loading="lazy">
+          </div>
+          <div class="barber-info">
+            <p class="barber-specialty">{b.specialty}</p>
+            <h3>{b.name}</h3>
+            <p class="barber-title">{b.title}</p>
+            <div class="divider"></div>
+            <p class="barber-bio">{b.bio}</p>
+            <a href={settings.booking_url} class="btn btn-outline barber-cta" target="_blank" rel="noopener">Boka med {b.name}</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  h2 { font-size: clamp(2.2rem, 4vw, 3.2rem); }
+  .barbers-grid {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 3rem;
+  }
+  .barber-card { display: flex; flex-direction: column; gap: 2rem; }
+  .barber-photo {
+    aspect-ratio: 4/5;
+    overflow: hidden;
+  }
+  .barber-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .barber-card:hover .barber-photo img { transform: scale(1.03); }
+  .barber-info { display: flex; flex-direction: column; gap: 0.5rem; }
+  .barber-specialty {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  h3 {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 500;
+  }
+  .barber-title {
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .barber-bio {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: rgba(240, 234, 216, 0.75);
+    margin-top: 0.5rem;
+  }
+  .barber-cta { margin-top: 1rem; }
+</style>

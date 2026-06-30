@@ -1,0 +1,9 @@
+{
+  "services": [
+    { "name": "Herrklippning", "price": 440, "note": "" },
+    { "name": "Barnklippning", "price": 380, "note": "" },
+    { "name": "Pensionärsklippning", "price": 300, "note": "" },
+    { "name": "Skäggtrimning", "price": null, "note": "Ingår som tillägg" },
+    { "name": "Rakning med kniv", "price": null, "note": "Specialtjänst" }
+  ]
+}

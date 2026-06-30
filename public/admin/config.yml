@@ -1,0 +1,69 @@
+backend:
+  name: git-gateway
+  branch: main
+
+locale: sv
+
+media_folder: public/assets
+public_folder: /assets
+
+collections:
+  - name: settings
+    label: Salonginställningar
+    files:
+      - label: Allmän info
+        name: general
+        file: content/settings.json
+        format: json
+        fields:
+          - { label: Salongnamn, name: salon_name, widget: string }
+          - { label: Rubrik (hero), name: tagline, widget: string }
+          - { label: Beskrivning (hero), name: hero_subtitle, widget: text }
+          - { label: Adress, name: address, widget: string }
+          - { label: Telefon, name: phone, widget: string }
+          - { label: E-post, name: email, widget: string }
+          - { label: Bokningslänk, name: booking_url, widget: string }
+          - { label: Hero-bild, name: hero_image, widget: image }
+
+      - label: Öppettider
+        name: hours
+        file: content/hours.json
+        format: json
+        fields:
+          - label: Öppettider
+            name: hours
+            widget: list
+            fields:
+              - { label: Dag, name: day, widget: string }
+              - { label: Öppnar, name: open, widget: string, hint: "Format: 09:00" }
+              - { label: Stänger, name: close, widget: string, hint: "Format: 18:00" }
+
+      - label: Tjänster & Priser
+        name: services
+        file: content/services.json
+        format: json
+        fields:
+          - label: Tjänster
+            name: services
+            widget: list
+            fields:
+              - { label: Tjänst, name: name, widget: string }
+              - { label: Pris (kr), name: price, widget: number, required: false, hint: "Lämna tomt om inget fast pris" }
+              - { label: Not, name: note, widget: string, required: false, hint: "T.ex. 'Ingår som tillägg'" }
+
+  - name: barbers
+    label: Barberare
+    folder: content/barbers
+    format: json
+    extension: json
+    create: true
+    slug: "{{name}}"
+    identifier_field: name
+    fields:
+      - { label: Namn, name: name, widget: string }
+      - { label: Titel, name: title, widget: string, default: Barberare }
+      - { label: Specialitet, name: specialty, widget: string }
+      - { label: Biografi, name: bio, widget: text }
+      - { label: Porträttfoto, name: photo, widget: image }
+      - { label: Aktionsfoto, name: action_photo, widget: image, required: false }
+      - { label: Ordning (1 = först), name: order, widget: number, default: 1 }

@@ -1,0 +1,9 @@
+{
+  "name": "Amir",
+  "title": "Barberare",
+  "specialty": "Skäggvård & moderna tekniker",
+  "bio": "Amir specialiserar sig på skäggvård och moderna tekniker. Hans noggrannhet och känsla för detaljer gör varje besök till en upplevelse utöver det vanliga.",
+  "photo": "/assets/amir-portrait.png",
+  "action_photo": "/assets/amir-action.png",
+  "order": 2
+}

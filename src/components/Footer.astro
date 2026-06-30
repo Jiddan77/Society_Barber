@@ -1,0 +1,90 @@
+---
+import settings from '../../content/settings.json';
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-mark">SB</span>
+        <p class="footer-name">Society Barber</p>
+        <p class="footer-address">{settings.address}</p>
+      </div>
+      <div class="footer-links">
+        <a href="#tjanster">Tjänster</a>
+        <a href="#barberare">Team</a>
+        <a href="#galleri">Galleri</a>
+        <a href="#kontakt">Kontakt</a>
+      </div>
+      <div class="footer-contact">
+        <a href={`tel:${settings.phone.replace(/-/g,'')}`}>{settings.phone}</a>
+        <a href={`mailto:${settings.email}`}>{settings.email}</a>
+        <a href={settings.booking_url} target="_blank" rel="noopener">Bokadirekt</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© {new Date().getFullYear()} Society Barber. Alla rättigheter förbehållna.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid var(--border);
+    padding: 4rem 0 2rem;
+  }
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+  .footer-brand { display: flex; flex-direction: column; gap: 0.5rem; }
+  .logo-mark {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--text);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  .footer-name {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .footer-address {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+  }
+  .footer-links, .footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .footer-links a, .footer-contact a {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    transition: color 0.2s;
+  }
+  .footer-links a:hover, .footer-contact a:hover { color: var(--text); }
+  .footer-bottom {
+    border-top: 1px solid var(--border);
+    padding-top: 1.5rem;
+  }
+  .footer-bottom p {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+  @media (max-width: 640px) {
+    .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+  }
+</style>

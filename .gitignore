@@ -1,3 +1,6 @@
 .thumbnail
 uploads/
 .DS_Store
+node_modules/
+dist/
+.astro/

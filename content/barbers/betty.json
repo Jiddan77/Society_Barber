@@ -1,0 +1,9 @@
+{
+  "name": "Betty",
+  "title": "Barberare",
+  "specialty": "Fade & klassiska snitt",
+  "bio": "Betty har en passion för precision och hantverk. Med fokus på fade-tekniker och klassiska herrsnitt levererar hon alltid ett resultat som sitter.",
+  "photo": "/assets/betty-portrait.png",
+  "action_photo": "/assets/betty-action.png",
+  "order": 1
+}
