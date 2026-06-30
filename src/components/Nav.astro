@@ -2,8 +2,8 @@
 import settings from '../../content/settings.json';
 ---
 
-<nav class="nav" id="nav">
-  <div class="nav-inner container">
+<header class="nav-header" id="nav">
+  <nav class="nav-inner">
     <a href="/" class="logo">
       <span class="logo-mark">SB</span>
       <span class="logo-text">Society Barber</span>
@@ -13,46 +13,43 @@ import settings from '../../content/settings.json';
     </button>
     <ul class="nav-links" id="nav-links">
       <li><a href="#tjanster">Tjänster</a></li>
-      <li><a href="#barberare">Team</a></li>
-      <li><a href="#galleri">Galleri</a></li>
+      <li><a href="#om-oss">Om oss</a></li>
+      <li><a href="#team">Team</a></li>
       <li><a href="#kontakt">Kontakt</a></li>
-      <li><a href={settings.booking_url} class="btn btn-outline nav-cta" target="_blank" rel="noopener">Boka tid</a></li>
+      <li><a href={settings.booking_url} class="nav-cta" target="_blank" rel="noopener">Boka Tid</a></li>
     </ul>
-  </div>
-</nav>
+  </nav>
+</header>
 
 <style>
-  .nav {
-    position: fixed;
+  .nav-header {
+    position: sticky;
     top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    padding: 1.5rem 0;
-    transition: background 0.3s ease, padding 0.3s ease;
-  }
-  .nav.scrolled {
-    background: rgba(26, 42, 34, 0.97);
-    backdrop-filter: blur(8px);
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--border);
+    z-index: 50;
+    background: rgba(26, 42, 34, 0.82);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(239, 233, 220, 0.12);
   }
   .nav-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 16px 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 2rem;
   }
   .logo {
     display: flex;
     align-items: center;
     gap: 0.75rem;
     flex-shrink: 0;
+    text-decoration: none;
+    color: #EFE9DC;
   }
   .logo-mark {
     width: 38px;
     height: 38px;
-    border: 1px solid var(--text);
+    border: 1px solid rgba(239, 233, 220, 0.7);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -72,19 +69,35 @@ import settings from '../../content/settings.json';
   .nav-links {
     display: flex;
     align-items: center;
-    gap: 2.5rem;
+    gap: 2rem;
     list-style: none;
   }
-  .nav-links a:not(.btn) {
+  .nav-links a:not(.nav-cta) {
+    font-family: 'Jost', sans-serif;
     font-size: 0.75rem;
     font-weight: 400;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    opacity: 0.8;
+    color: rgba(239, 233, 220, 0.85);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:not(.nav-cta):hover { color: #EFE9DC; }
+  .nav-cta {
+    font-family: 'Jost', sans-serif;
+    display: inline-block;
+    background: #EFE9DC;
+    color: #24382E;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 12px 26px;
+    border-radius: 2px;
     transition: opacity 0.2s;
   }
-  .nav-links a:not(.btn):hover { opacity: 1; }
-  .nav-cta { padding: 0.6rem 1.4rem; font-size: 0.7rem; }
+  .nav-cta:hover { opacity: 0.88; }
   .burger {
     display: none;
     flex-direction: column;
@@ -98,7 +111,7 @@ import settings from '../../content/settings.json';
     display: block;
     width: 22px;
     height: 1px;
-    background: var(--text);
+    background: #EFE9DC;
     transition: all 0.3s;
   }
   @media (max-width: 768px) {
@@ -106,7 +119,7 @@ import settings from '../../content/settings.json';
     .nav-links {
       position: fixed;
       inset: 0;
-      background: var(--bg);
+      background: #1A2A22;
       flex-direction: column;
       justify-content: center;
       gap: 2rem;
@@ -114,18 +127,13 @@ import settings from '../../content/settings.json';
       transition: transform 0.35s ease;
     }
     .nav-links.open { transform: translateX(0); }
-    .nav-links a:not(.btn) { font-size: 1rem; }
+    .nav-links a:not(.nav-cta) { font-size: 1rem; }
   }
 </style>
 
 <script>
-  const nav = document.getElementById('nav');
   const burger = document.getElementById('burger');
   const links = document.getElementById('nav-links');
-
-  window.addEventListener('scroll', () => {
-    nav?.classList.toggle('scrolled', window.scrollY > 60);
-  });
 
   burger?.addEventListener('click', () => {
     links?.classList.toggle('open');

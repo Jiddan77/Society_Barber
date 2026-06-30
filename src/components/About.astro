@@ -1,0 +1,94 @@
+---
+---
+
+<section id="om-oss" class="about">
+  <div class="about-inner">
+    <div class="about-text">
+      <p class="label">Om oss</p>
+      <h2>En plats där kvalitet, stil och personlig service står i fokus</h2>
+      <div class="body">
+        <p>Välkommen till vår barbershop – en plats där kvalitet, stil och personlig service står i fokus. Vi är två passionerade barberare som tillsammans driver salongen, med flera års erfarenhet inom barberaryrket.</p>
+        <p>Vårt mål är att varje kund ska lämna stolen nöjd, självsäker och med en frisyr eller skäggstil som passar just deras personlighet och önskemål. Vi erbjuder allt från klassiska herrklippningar och moderna fades till skäggtrimning, rakning med kniv och styling.</p>
+        <p>Oavsett om du vill ha en tidlös look eller följer de senaste trenderna lägger vi stor vikt vid detaljer, precision och hantverk. Hos oss får du inte bara en behandling – du får en upplevelse i en avslappnad och välkomnande miljö där vi tar oss tid att lyssna på dina önskemål och ge professionella rekommendationer.</p>
+        <p class="emphasis">Vi ser fram emot att välkomna dig till vår salong och hjälpa dig att se ditt bästa ut. Boka din tid redan idag – vi tar hand om resten.</p>
+      </div>
+    </div>
+    <div class="about-images">
+      <img src="/assets/amir-action.png" alt="Barberare med trimmer hos Society Barber" class="img-tall" loading="lazy">
+      <img src="/assets/betty-cut.png" alt="Skäggvård hos Society Barber" class="img-small" loading="lazy">
+      <img src="/assets/betty-beard.png" alt="Skäggtrimning hos Society Barber" class="img-small" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    background: #EFE9DC;
+    color: #24382E;
+    padding: clamp(70px, 9vw, 130px) 24px;
+    scroll-margin-top: 70px;
+  }
+  .about-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: clamp(40px, 6vw, 90px);
+    align-items: center;
+  }
+  .label {
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(36, 56, 46, 0.55);
+    margin-bottom: 20px;
+  }
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: clamp(32px, 4.4vw, 52px);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    max-width: 16ch;
+  }
+  .body {
+    margin-top: 28px;
+    font-family: 'Jost', sans-serif;
+    font-size: 16px;
+    line-height: 1.75;
+    font-weight: 300;
+    color: rgba(36, 56, 46, 0.86);
+    max-width: 60ch;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .emphasis {
+    font-weight: 400;
+    color: #24382E;
+  }
+  .about-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 14px;
+    aspect-ratio: 1 / 1;
+    min-width: 0;
+  }
+  .about-images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 3px;
+  }
+  .img-tall {
+    grid-row: 1 / 3;
+  }
+  .img-small {
+    /* sits in column 2, rows 1 and 2 auto */
+  }
+  @media (max-width: 700px) {
+    .about-images { aspect-ratio: auto; min-height: 360px; }
+  }
+</style>

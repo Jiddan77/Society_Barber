@@ -1,75 +1,246 @@
 ---
-import servicesData from '../../content/services.json';
 import settings from '../../content/settings.json';
-const { services } = servicesData;
 ---
 
-<section class="section" id="tjanster">
-  <div class="container">
-    <p class="section-label">Tjänster & Priser</p>
-    <h2>Vad vi erbjuder</h2>
-    <div class="divider"></div>
+<section id="tjanster" class="services">
+  <div class="services-inner">
+    <div class="services-header">
+      <p class="label">Tjänster &amp; priser</p>
+      <h2>Herrklippning, fade &amp; skäggvård i Åkersberga</h2>
+    </div>
 
-    <div class="services-grid">
-      {services.map((s) => (
-        <div class="service-item">
-          <span class="service-name">{s.name}</span>
-          <span class="service-dots"></span>
-          <span class="service-price">
-            {s.price ? `${s.price} kr` : s.note}
-          </span>
+    <div class="cards">
+
+      <!-- Klippning -->
+      <div class="card card-dark">
+        <h3>Klippning</h3>
+        <p class="card-sub">Herr-, barn- &amp; maskinklippning</p>
+        <div class="items">
+          <div class="item">
+            <div>
+              <div class="item-name">Herrklippning</div>
+              <div class="item-desc">Ink. Skinfade &amp; Taperfade · 30 min</div>
+            </div>
+            <div class="item-price">440 kr</div>
+          </div>
+          <div class="item">
+            <div>
+              <div class="item-name">Barnklippning</div>
+              <div class="item-desc">Upp till 10 år (ej Skin-/Taperfade) · 30 min</div>
+            </div>
+            <div class="item-price">380 kr</div>
+          </div>
+          <div class="item">
+            <div>
+              <div class="item-name">Pensionärsklippning</div>
+              <div class="item-desc">Mån–Ons 09:00–13:00 · 30 min</div>
+            </div>
+            <div class="item-price">300 kr</div>
+          </div>
+          <div class="item">
+            <div>
+              <div class="item-name">Snaggning / maskinklippning</div>
+              <div class="item-desc">15 min</div>
+            </div>
+            <div class="item-price">fr. 150 kr</div>
+          </div>
         </div>
-      ))}
-    </div>
+      </div>
 
-    <div class="services-footer">
-      <p>Drop-in välkomnas vid lediga tider. Bokning rekommenderas.</p>
-      <a href={settings.booking_url} class="btn btn-outline" target="_blank" rel="noopener">Boka tid</a>
+      <!-- Skägg -->
+      <div class="card card-dark">
+        <h3>Skägg</h3>
+        <p class="card-sub">Trimning &amp; rakning med kniv</p>
+        <div class="items">
+          <div class="item">
+            <div>
+              <div class="item-name">Skäggtrimning</div>
+              <div class="item-desc">Trimning, konturering &amp; styling · 30 min</div>
+            </div>
+            <div class="item-price">380 kr</div>
+          </div>
+          <div class="item">
+            <div>
+              <div class="item-name">Slätrakning</div>
+              <div class="item-desc">Rakning med kniv &amp; varma handdukar · 30 min</div>
+            </div>
+            <div class="item-price">390 kr</div>
+          </div>
+        </div>
+        <h3 class="sub-heading">Övrigt</h3>
+        <p class="card-sub">Detaljer &amp; finish</p>
+        <div class="items">
+          <div class="item">
+            <div>
+              <div class="item-name">Vaxning</div>
+              <div class="item-desc">T.ex. öron &amp; näsa · 15 min</div>
+            </div>
+            <div class="item-price">150 kr</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kombopaket -->
+      <div class="card card-cream">
+        <h3>Kombopaket</h3>
+        <p class="card-sub card-sub-dark">Klippning + skägg, allt på en gång</p>
+        <div class="items items-dark">
+          <div class="item item-dark">
+            <div>
+              <div class="item-name">Klippning &amp; Skäggtrimning / Slätrakning</div>
+              <div class="item-desc item-desc-dark">Vår mest kompletta behandling · 45 min</div>
+            </div>
+            <div class="item-price item-price-dark">680 kr</div>
+          </div>
+          <div class="item item-dark">
+            <div>
+              <div class="item-name">Snaggning / maskinklipp &amp; Skäggtrimning</div>
+              <div class="item-desc item-desc-dark">Snabbt, rent &amp; skarpt · 45 min</div>
+            </div>
+            <div class="item-price item-price-dark">500 kr</div>
+          </div>
+        </div>
+        <a href={settings.booking_url} target="_blank" rel="noopener" class="card-cta">
+          Boka kombopaket <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
     </div>
+    <p class="footnote">Snaggning/maskinklippning från 150 kr. Pensionärsklippning gäller endast måndag–onsdag kl 09:00–13:00.</p>
   </div>
 </section>
 
 <style>
-  h2 { font-size: clamp(2.8rem, 5vw, 4rem); font-style: italic; margin-bottom: 0; }
-  .services-grid {
-    margin-top: 3rem;
-    border-top: 1px solid var(--border);
+  .services {
+    background: #24382E;
+    padding: clamp(70px, 9vw, 130px) 24px;
+    scroll-margin-top: 70px;
   }
-  .service-item {
-    display: flex;
-    align-items: baseline;
-    gap: 0.5rem;
-    padding: 1.25rem 0;
-    border-bottom: 1px solid var(--border);
+  .services-inner {
+    max-width: 1240px;
+    margin: 0 auto;
   }
-  .service-name {
+  .services-header {
+    max-width: 680px;
+    margin-bottom: clamp(40px, 5vw, 70px);
+  }
+  .label {
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(239, 233, 220, 0.6);
+    margin-bottom: 18px;
+  }
+  h2 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.25rem;
-    font-weight: 500;
-    white-space: nowrap;
+    font-weight: 600;
+    font-size: clamp(32px, 4.6vw, 56px);
+    line-height: 1.04;
+    letter-spacing: -0.01em;
+    color: #EFE9DC;
   }
-  .service-dots {
-    flex: 1;
-    border-bottom: 1px dashed var(--border);
-    margin-bottom: 4px;
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 20px;
   }
-  .service-price {
-    font-size: 0.85rem;
-    font-weight: 400;
-    letter-spacing: 0.05em;
-    color: var(--accent);
-    white-space: nowrap;
+  .card {
+    border-radius: 4px;
+    padding: 34px clamp(24px, 3vw, 38px);
   }
-  .services-footer {
-    margin-top: 3rem;
+  .card-dark {
+    background: #2E443A;
+    border: 1px solid rgba(239, 233, 220, 0.1);
+    color: #EFE9DC;
+  }
+  .card-cream {
+    background: #EFE9DC;
+    color: #24382E;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-    flex-wrap: wrap;
+    flex-direction: column;
   }
-  .services-footer p {
-    font-size: 0.9rem;
-    color: var(--text-muted);
+  h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 30px;
+    margin-bottom: 6px;
+  }
+  .sub-heading {
+    margin-top: 34px;
+  }
+  .card-sub {
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    color: rgba(239, 233, 220, 0.5);
+    margin-bottom: 22px;
+  }
+  .card-sub-dark {
+    color: rgba(36, 56, 46, 0.55);
+  }
+  .items {
+    display: flex;
+    flex-direction: column;
+  }
+  .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    padding: 16px 0;
+    border-top: 1px solid rgba(239, 233, 220, 0.12);
+  }
+  .item-dark {
+    border-top-color: rgba(36, 56, 46, 0.16);
+  }
+  .item-name {
+    font-family: 'Jost', sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+  }
+  .item-desc {
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    color: rgba(239, 233, 220, 0.55);
+    margin-top: 3px;
+  }
+  .item-desc-dark {
+    color: rgba(36, 56, 46, 0.6);
+  }
+  .item-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    white-space: nowrap;
+    color: #EFE9DC;
+  }
+  .item-price-dark {
+    color: #24382E;
+  }
+  .card-cta {
+    margin-top: auto;
+    padding-top: 26px;
+    color: #24382E;
+    text-decoration: none;
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: gap 0.2s;
+  }
+  .card-cta:hover { gap: 14px; }
+  .footnote {
+    margin-top: 26px;
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    color: rgba(239, 233, 220, 0.5);
+    letter-spacing: 0.03em;
+  }
+  @media (max-width: 700px) {
+    .cards { grid-template-columns: 1fr; }
   }
 </style>

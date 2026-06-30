@@ -10,21 +10,23 @@ const barbers = fs.readdirSync(barbersDir)
   .sort((a, b) => a.order - b.order);
 ---
 
-<section class="section barbers-section" id="barberare">
-  <div class="container">
-    <p class="section-label">Teamet</p>
-    <h2>Möt våra barberare</h2>
-    <div class="divider"></div>
-
-    <div class="barbers-grid">
+<section id="team" class="team">
+  <div class="team-inner">
+    <div class="team-header">
+      <p class="label">Vårt team</p>
+      <h2>Möt dina barberare</h2>
+    </div>
+    <div class="team-grid">
       {barbers.map((b) => (
         <article class="barber-card">
-          <p class="barber-specialty">{b.specialty}</p>
-          <h3>{b.name}</h3>
-          <p class="barber-title">{b.title}</p>
-          <div class="divider"></div>
-          <p class="barber-bio">{b.bio}</p>
-          <a href={settings.booking_url} class="btn btn-outline barber-cta" target="_blank" rel="noopener">Boka med {b.name}</a>
+          <div class="photo-wrap">
+            <img src={b.photo} alt={`${b.name} klipper en kund hos Society Barber i Åkersberga`} loading="lazy">
+          </div>
+          <div class="info">
+            <h3>{b.name}</h3>
+            <p class="subtitle">{b.title}</p>
+            <p class="bio">{b.bio}</p>
+          </div>
         </article>
       ))}
     </div>
@@ -32,62 +34,86 @@ const barbers = fs.readdirSync(barbersDir)
 </section>
 
 <style>
-  h2 { font-size: clamp(2.2rem, 4vw, 3.2rem); }
-  .barbers-section { scroll-margin-top: 80px; }
-  .barbers-grid {
-    margin-top: 4rem;
+  .team {
+    background: #EFE9DC;
+    color: #24382E;
+    padding: clamp(70px, 9vw, 130px) 24px;
+    scroll-margin-top: 70px;
+  }
+  .team-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+  .team-header {
+    max-width: 680px;
+    margin-bottom: clamp(40px, 5vw, 64px);
+  }
+  .label {
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(36, 56, 46, 0.55);
+    margin-bottom: 18px;
+  }
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: clamp(32px, 4.6vw, 56px);
+    line-height: 1.04;
+    letter-spacing: -0.01em;
+  }
+  .team-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0;
-    border-top: 1px solid var(--border);
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 28px;
   }
   .barber-card {
-    padding: 4rem 4rem 4rem 0;
+    background: #FBF8F1;
+    border: 1px solid rgba(36, 56, 46, 0.12);
+    border-radius: 6px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
   }
-  .barber-card + .barber-card {
-    padding-left: 4rem;
-    padding-right: 0;
-    border-left: 1px solid var(--border);
+  .photo-wrap {
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: #24382E;
   }
-  .barber-specialty {
-    font-size: 0.68rem;
-    font-weight: 500;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 0.75rem;
+  .photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+  .info {
+    padding: clamp(26px, 3vw, 36px) clamp(26px, 3vw, 38px) clamp(32px, 3.5vw, 42px);
   }
   h3 {
-    font-size: clamp(3rem, 5vw, 4.5rem);
-    font-weight: 500;
-    line-height: 1.05;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 32px;
+    color: #24382E;
   }
-  .barber-title {
-    font-size: 0.72rem;
-    font-weight: 400;
-    letter-spacing: 0.15em;
+  .subtitle {
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--text-muted);
+    color: rgba(36, 56, 46, 0.5);
+    margin-top: 6px;
   }
-  .barber-bio {
-    font-size: 0.95rem;
-    line-height: 1.75;
-    color: rgba(240, 234, 216, 0.75);
-    max-width: 420px;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+  .bio {
+    font-family: 'Jost', sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    font-weight: 300;
+    color: rgba(36, 56, 46, 0.82);
+    margin-top: 16px;
+    max-width: 42ch;
   }
-  .barber-cta { margin-top: 1rem; }
-  @media (max-width: 768px) {
-    .barbers-grid { grid-template-columns: 1fr; }
-    .barber-card { padding: 3rem 0; }
-    .barber-card + .barber-card {
-      padding-left: 0;
-      border-left: none;
-      border-top: 1px solid var(--border);
-    }
+  @media (max-width: 680px) {
+    .team-grid { grid-template-columns: 1fr; }
   }
 </style>

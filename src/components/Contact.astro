@@ -1,105 +1,175 @@
 ---
 import settings from '../../content/settings.json';
-import hoursData from '../../content/hours.json';
-const { hours } = hoursData;
 ---
 
-<section class="section" id="kontakt">
-  <div class="container">
+<footer id="kontakt" class="contact">
+  <div class="contact-inner">
     <div class="contact-grid">
-      <div class="contact-info">
-        <p class="section-label">Kontakt & Hitta oss</p>
-        <h2>Välkommen in</h2>
-        <div class="divider"></div>
-
-        <div class="info-block">
-          <p class="info-label">Adress</p>
-          <p>{settings.address}</p>
-        </div>
-
-        <div class="info-block">
-          <p class="info-label">Telefon</p>
-          <a href={`tel:${settings.phone.replace(/-/g,'')}`}>{settings.phone}</a>
-        </div>
-
-        <div class="info-block">
-          <p class="info-label">E-post</p>
-          <a href={`mailto:${settings.email}`}>{settings.email}</a>
-        </div>
-
-        <div class="info-block">
-          <p class="info-label">Öppettider</p>
-          <ul class="hours-list">
-            {hours.map((h) => (
-              <li>
-                <span class="hours-day">{h.day}</span>
-                <span class="hours-time">{h.open}–{h.close}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <a href={settings.booking_url} class="btn btn-primary" target="_blank" rel="noopener" style="margin-top:1.5rem">
-          Boka tid online
-        </a>
+      <div class="contact-left">
+        <p class="label">Hitta hit &amp; boka tid</p>
+        <h2>Välkommen in till Society Barber</h2>
+        <a href={settings.booking_url} target="_blank" rel="noopener" class="book-btn">Boka Tid</a>
       </div>
 
-      <div class="contact-map">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2009.2!2d18.276!3d59.486!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9c7c0c0c0c0c%3A0x0!2sRallarv%C3%A4gen+43%2C+184+40+%C3%85kersberga!5e0!3m2!1ssv!2sse!4v1"
-          width="100%"
-          height="100%"
-          style="border:0;"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Society Barber karta"
-        ></iframe>
+      <div class="contact-right">
+        <div class="info-col">
+          <h3 class="info-heading">Besök oss</h3>
+          <p class="info-body">
+            <a href="https://www.google.com/maps/search/?api=1&query=Rallarvägen+43,+184+40,+Åkersberga" target="_blank" rel="noopener" class="map-link">
+              Rallarvägen 43<br>184 40 Åkersberga
+            </a>
+          </p>
+        </div>
+        <div class="info-col">
+          <h3 class="info-heading">Kontakt</h3>
+          <p class="info-body info-links">
+            <a href={`mailto:${settings.email}`}>{settings.email}</a><br>
+            <a href={`tel:${settings.phone.replace(/-/g,'')}`}>{settings.phone}</a><br>
+            <a href="https://www.societybarber.se">www.societybarber.se</a>
+          </p>
+        </div>
+        <div class="info-col">
+          <h3 class="info-heading">Öppettider</h3>
+          <div class="hours">
+            <div class="hours-row"><span>Mån–Fre</span><span class="hours-time">09:00–18:00</span></div>
+            <div class="hours-row"><span>Lördag</span><span class="hours-time">10:00–17:00</span></div>
+            <div class="hours-row"><span>Söndag</span><span class="hours-time">11:00–16:00</span></div>
+          </div>
+        </div>
       </div>
     </div>
+
+    <div class="exterior-wrap">
+      <img src="/assets/exterior-sign.png" alt="Society Barber skylt i Åkersberga" loading="lazy" class="exterior-img">
+    </div>
+
+    <div class="copyright">
+      <span>© {new Date().getFullYear()} Society Barber. Alla rättigheter förbehållna.</span>
+      <span>{settings.address}</span>
+    </div>
   </div>
-</section>
+</footer>
 
 <style>
-  h2 { font-size: clamp(2.2rem, 4vw, 3.2rem); }
+  .contact {
+    background: #1A2A22;
+    color: #EFE9DC;
+    padding: clamp(70px, 9vw, 120px) 24px 40px;
+    scroll-margin-top: 70px;
+  }
+  .contact-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+  }
   .contact-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: clamp(36px, 5vw, 70px);
     align-items: start;
   }
-  .info-block { margin-top: 1.75rem; }
-  .info-label {
-    font-size: 0.68rem;
+  .label {
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(239, 233, 220, 0.55);
+    margin-bottom: 18px;
+  }
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: clamp(34px, 5vw, 60px);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+    max-width: 14ch;
+  }
+  .book-btn {
+    display: inline-block;
+    margin-top: 30px;
+    background: #EFE9DC;
+    color: #24382E;
+    text-decoration: none;
+    font-family: 'Jost', sans-serif;
+    font-size: 15px;
     font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 18px 40px;
+    border-radius: 2px;
+    transition: transform 0.2s, box-shadow 0.25s;
+  }
+  .book-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.4);
+  }
+  .contact-right {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 32px;
+  }
+  .info-heading {
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 0.4rem;
+    color: rgba(239, 233, 220, 0.5);
+    margin-bottom: 16px;
+    font-weight: 500;
   }
-  .info-block p, .info-block a {
-    font-size: 1rem;
-    line-height: 1.6;
+  .info-body {
+    font-family: 'Jost', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    font-weight: 300;
   }
-  .info-block a:hover { color: var(--accent); }
-  .hours-list { list-style: none; }
-  .hours-list li {
+  .info-links {
+    font-size: 15px;
+    line-height: 1.9;
+  }
+  .info-links a, .map-link {
+    color: #EFE9DC;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(239, 233, 220, 0.3);
+    transition: border-color 0.2s;
+  }
+  .info-links a:hover, .map-link:hover { border-color: #EFE9DC; }
+  .hours {
+    font-family: 'Jost', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+  }
+  .hours-row {
     display: flex;
     justify-content: space-between;
-    gap: 2rem;
-    padding: 0.4rem 0;
-    border-bottom: 1px solid var(--border);
-    font-size: 0.9rem;
+    gap: 14px;
   }
-  .hours-day { color: rgba(240, 234, 216, 0.8); }
-  .hours-time { color: var(--accent); }
-  .contact-map {
-    height: 480px;
+  .hours-time { color: rgba(239, 233, 220, 0.7); }
+  .exterior-wrap {
+    margin-top: clamp(44px, 6vw, 72px);
+    border-radius: 4px;
     overflow: hidden;
   }
-  .contact-map iframe { filter: grayscale(30%) invert(5%); }
-  @media (max-width: 900px) {
-    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
-    .contact-map { height: 320px; }
+  .exterior-img {
+    width: 100%;
+    height: clamp(220px, 32vw, 380px);
+    object-fit: cover;
+    object-position: center 40%;
+    display: block;
+  }
+  .copyright {
+    margin-top: 40px;
+    padding-top: 26px;
+    border-top: 1px solid rgba(239, 233, 220, 0.12);
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    color: rgba(239, 233, 220, 0.5);
+    letter-spacing: 0.04em;
   }
 </style>
