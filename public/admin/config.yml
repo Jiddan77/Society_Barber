@@ -38,6 +38,17 @@ collections:
               - { label: Öppnar, name: open, widget: string, hint: "Format: 09:00" }
               - { label: Stänger, name: close, widget: string, hint: "Format: 18:00" }
 
+      - label: Om oss
+        name: about
+        file: content/about.json
+        format: json
+        fields:
+          - { label: Rubrik, name: heading, widget: string }
+          - { label: Stycke 1, name: body, widget: text }
+          - { label: Stycke 2, name: body2, widget: text }
+          - { label: Stycke 3, name: body3, widget: text }
+          - { label: Avslutning, name: closing, widget: text }
+
       - label: Tjänster & Priser
         name: services
         file: content/services.json
