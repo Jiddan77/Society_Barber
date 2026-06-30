@@ -1,12 +1,13 @@
 ---
 import settings from '../../content/settings.json';
+import svc from '../../content/services.json';
 ---
 
 <section id="tjanster" class="services">
   <div class="services-inner">
     <div class="services-header">
       <p class="label">Tjänster &amp; priser</p>
-      <h2>Herrklippning, fade &amp; skäggvård i Åkersberga</h2>
+      <h2>{svc.section_heading}</h2>
     </div>
 
     <div class="cards">
@@ -16,67 +17,45 @@ import settings from '../../content/settings.json';
         <h3>Klippning</h3>
         <p class="card-sub">Herr-, barn- &amp; maskinklippning</p>
         <div class="items">
-          <div class="item">
-            <div>
-              <div class="item-name">Herrklippning</div>
-              <div class="item-desc">Ink. Skinfade &amp; Taperfade · 30 min</div>
+          {svc.klippning.map(item => (
+            <div class="item">
+              <div>
+                <div class="item-name">{item.name}</div>
+                {item.desc && <div class="item-desc">{item.desc}</div>}
+              </div>
+              <div class="item-price">{item.price}</div>
             </div>
-            <div class="item-price">440 kr</div>
-          </div>
-          <div class="item">
-            <div>
-              <div class="item-name">Barnklippning</div>
-              <div class="item-desc">Upp till 10 år (ej Skin-/Taperfade) · 30 min</div>
-            </div>
-            <div class="item-price">380 kr</div>
-          </div>
-          <div class="item">
-            <div>
-              <div class="item-name">Pensionärsklippning</div>
-              <div class="item-desc">Mån–Ons 09:00–13:00 · 30 min</div>
-            </div>
-            <div class="item-price">300 kr</div>
-          </div>
-          <div class="item">
-            <div>
-              <div class="item-name">Snaggning / maskinklippning</div>
-              <div class="item-desc">15 min</div>
-            </div>
-            <div class="item-price">fr. 150 kr</div>
-          </div>
+          ))}
         </div>
       </div>
 
-      <!-- Skägg -->
+      <!-- Skägg + Övrigt -->
       <div class="card card-dark">
         <h3>Skägg</h3>
         <p class="card-sub">Trimning &amp; rakning med kniv</p>
         <div class="items">
-          <div class="item">
-            <div>
-              <div class="item-name">Skäggtrimning</div>
-              <div class="item-desc">Trimning, konturering &amp; styling · 30 min</div>
+          {svc.skagg.map(item => (
+            <div class="item">
+              <div>
+                <div class="item-name">{item.name}</div>
+                {item.desc && <div class="item-desc">{item.desc}</div>}
+              </div>
+              <div class="item-price">{item.price}</div>
             </div>
-            <div class="item-price">380 kr</div>
-          </div>
-          <div class="item">
-            <div>
-              <div class="item-name">Slätrakning</div>
-              <div class="item-desc">Rakning med kniv &amp; varma handdukar · 30 min</div>
-            </div>
-            <div class="item-price">390 kr</div>
-          </div>
+          ))}
         </div>
         <h3 class="sub-heading">Övrigt</h3>
         <p class="card-sub">Detaljer &amp; finish</p>
         <div class="items">
-          <div class="item">
-            <div>
-              <div class="item-name">Vaxning</div>
-              <div class="item-desc">T.ex. öron &amp; näsa · 15 min</div>
+          {svc.ovrigt.map(item => (
+            <div class="item">
+              <div>
+                <div class="item-name">{item.name}</div>
+                {item.desc && <div class="item-desc">{item.desc}</div>}
+              </div>
+              <div class="item-price">{item.price}</div>
             </div>
-            <div class="item-price">150 kr</div>
-          </div>
+          ))}
         </div>
       </div>
 
@@ -85,20 +64,15 @@ import settings from '../../content/settings.json';
         <h3>Kombopaket</h3>
         <p class="card-sub card-sub-dark">Klippning + skägg, allt på en gång</p>
         <div class="items items-dark">
-          <div class="item item-dark">
-            <div>
-              <div class="item-name">Klippning &amp; Skäggtrimning / Slätrakning</div>
-              <div class="item-desc item-desc-dark">Vår mest kompletta behandling · 45 min</div>
+          {svc.kombo.map(item => (
+            <div class="item item-dark">
+              <div>
+                <div class="item-name">{item.name}</div>
+                {item.desc && <div class="item-desc item-desc-dark">{item.desc}</div>}
+              </div>
+              <div class="item-price item-price-dark">{item.price}</div>
             </div>
-            <div class="item-price item-price-dark">680 kr</div>
-          </div>
-          <div class="item item-dark">
-            <div>
-              <div class="item-name">Snaggning / maskinklipp &amp; Skäggtrimning</div>
-              <div class="item-desc item-desc-dark">Snabbt, rent &amp; skarpt · 45 min</div>
-            </div>
-            <div class="item-price item-price-dark">500 kr</div>
-          </div>
+          ))}
         </div>
         <a href={settings.booking_url} target="_blank" rel="noopener" class="card-cta">
           Boka kombopaket <span aria-hidden="true">→</span>
@@ -106,7 +80,7 @@ import settings from '../../content/settings.json';
       </div>
 
     </div>
-    <p class="footnote">Snaggning/maskinklippning från 150 kr. Pensionärsklippning gäller endast måndag–onsdag kl 09:00–13:00.</p>
+    <p class="footnote">{svc.footnote}</p>
   </div>
 </section>
 

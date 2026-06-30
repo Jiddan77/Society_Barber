@@ -1,9 +1,21 @@
 {
-  "services": [
-    { "name": "Herrklippning", "price": 440, "note": "" },
-    { "name": "Barnklippning", "price": 380, "note": "" },
-    { "name": "Pensionärsklippning", "price": 300, "note": "" },
-    { "name": "Skäggtrimning", "price": null, "note": "Ingår som tillägg" },
-    { "name": "Rakning med kniv", "price": null, "note": "Specialtjänst" }
-  ]
+  "section_heading": "Herrklippning, fade & skäggvård i Åkersberga",
+  "klippning": [
+    { "name": "Herrklippning", "desc": "Ink. Skinfade & Taperfade · 30 min", "price": "440 kr" },
+    { "name": "Barnklippning", "desc": "Upp till 10 år (ej Skin-/Taperfade) · 30 min", "price": "380 kr" },
+    { "name": "Pensionärsklippning", "desc": "Mån–Ons 09:00–13:00 · 30 min", "price": "300 kr" },
+    { "name": "Snaggning / maskinklippning", "desc": "15 min", "price": "fr. 150 kr" }
+  ],
+  "skagg": [
+    { "name": "Skäggtrimning", "desc": "Trimning, konturering & styling · 30 min", "price": "380 kr" },
+    { "name": "Slätrakning", "desc": "Rakning med kniv & varma handdukar · 30 min", "price": "390 kr" }
+  ],
+  "ovrigt": [
+    { "name": "Vaxning", "desc": "T.ex. öron & näsa · 15 min", "price": "150 kr" }
+  ],
+  "kombo": [
+    { "name": "Klippning & Skäggtrimning / Slätrakning", "desc": "Vår mest kompletta behandling · 45 min", "price": "680 kr" },
+    { "name": "Snaggning / maskinklipp & Skäggtrimning", "desc": "Snabbt, rent & skarpt · 45 min", "price": "500 kr" }
+  ],
+  "footnote": "Snaggning/maskinklippning från 150 kr. Pensionärsklippning gäller endast måndag–onsdag kl 09:00–13:00."
 }

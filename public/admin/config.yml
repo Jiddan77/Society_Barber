@@ -54,13 +54,36 @@ collections:
         file: content/services.json
         format: json
         fields:
-          - label: Tjänster
-            name: services
+          - { label: Sektionsrubrik, name: section_heading, widget: string }
+          - label: Klippning
+            name: klippning
             widget: list
             fields:
-              - { label: Tjänst, name: name, widget: string }
-              - { label: Pris (kr), name: price, widget: number, required: false, hint: "Lämna tomt om inget fast pris" }
-              - { label: Not, name: note, widget: string, required: false, hint: "T.ex. 'Ingår som tillägg'" }
+              - { label: Namn, name: name, widget: string }
+              - { label: Beskrivning, name: desc, widget: string, required: false }
+              - { label: Pris, name: price, widget: string }
+          - label: Skägg
+            name: skagg
+            widget: list
+            fields:
+              - { label: Namn, name: name, widget: string }
+              - { label: Beskrivning, name: desc, widget: string, required: false }
+              - { label: Pris, name: price, widget: string }
+          - label: Övrigt
+            name: ovrigt
+            widget: list
+            fields:
+              - { label: Namn, name: name, widget: string }
+              - { label: Beskrivning, name: desc, widget: string, required: false }
+              - { label: Pris, name: price, widget: string }
+          - label: Kombopaket
+            name: kombo
+            widget: list
+            fields:
+              - { label: Namn, name: name, widget: string }
+              - { label: Beskrivning, name: desc, widget: string, required: false }
+              - { label: Pris, name: price, widget: string }
+          - { label: Fotnot, name: footnote, widget: string }
 
   - name: barbers
     label: Barberare

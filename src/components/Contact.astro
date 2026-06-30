@@ -1,5 +1,6 @@
 ---
 import settings from '../../content/settings.json';
+import hoursData from '../../content/hours.json';
 ---
 
 <footer id="kontakt" class="contact">
@@ -31,9 +32,12 @@ import settings from '../../content/settings.json';
         <div class="info-col">
           <h3 class="info-heading">Öppettider</h3>
           <div class="hours">
-            <div class="hours-row"><span>Mån–Fre</span><span class="hours-time">09:00–18:00</span></div>
-            <div class="hours-row"><span>Lördag</span><span class="hours-time">10:00–17:00</span></div>
-            <div class="hours-row"><span>Söndag</span><span class="hours-time">11:00–16:00</span></div>
+            {hoursData.hours.map(h => (
+              <div class="hours-row">
+                <span>{h.day}</span>
+                <span class="hours-time">{h.open}–{h.close}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
