@@ -58,6 +58,13 @@ These tasks require manual steps and cannot be done in the code.
 1. Ask customers to leave reviews on Bokadirekt after each visit
 2. When you have at least 5 reviews → notify Alexander → AggregateRating will be added to the schema
 
+**Maintenance (2026-07-30):** Ratings are now live on the site as static text — Boka Direkt 5.0★ (174) and Google 5.0★ (23), shown in the hero bar, the Kontakt section, and (Boka Direkt only) in the BarberShop schema's `aggregateRating`. When these numbers change, update all four spots in `index.html`:
+1. `#__seo_static` hero paragraph (plain HTML, ~line 104)
+2. Hero info-bar inside the `__bundler/template` script (escaped — search for `Boka Direkt (174)`)
+3. `#__seo_static` Kontakt paragraph (plain HTML, ~line 123)
+4. "Recensioner" column inside the `__bundler/template` Kontakt grid (escaped — search for `Recensioner`)
+5. `aggregateRating.ratingValue` / `reviewCount` in the embedded BarberShop schema (escaped — search for `aggregateRating`) — Boka Direkt numbers only.
+
 ### 7. Register on local directories (citation building)
 **Why:** Consistent NAP data (name, address, phone) on multiple sites strengthens local ranking.
 **Sites to register on:**
